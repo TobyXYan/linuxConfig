@@ -1,0 +1,261 @@
+#!/bin/csh
+###############################################################################
+##My Personal Setting
+###############################################################################
+set system=`uname`
+set history=5000 #??
+#set shell = /bin/csh
+set host=`hostname` 
+set prompt="%B%n@%m: %~ %% %b"
+
+setenv LD_LIBRARY_PATH /depot/qsc/QSCN/GCC/lib64
+
+###############################################################################
+##Path Setting
+###############################################################################
+set path = ( \
+		          #Perl \
+		          /depot/perl-5.8.3/bin \
+				            #SOLD (synopsys online document) \
+				            #/global/apps1/sold_2005.03 \
+				            $path \
+							           )
+set path = ( $path /depot/p4_utilities/ )
+set path = ( $path /depot/qsc/QSCG/bin/ )
+set path = ( $path /depot/tools/ccollab/bin/ )
+
+set path = ( $path /remote/dept5116r/emre/goldtime-2011.06-patch-24834/bin/ )
+
+set path=(.\
+  /depot/tools/synmake3/3.3 \
+  #/depot/tools/synmake3/3.0 \
+	/u/dcmgr/bin/linux \
+	#/depot/tools/synmake2/2.1.0 \
+	#/depot/tools/synmake2/2.0.2 \
+	#/depot/tools/synmake2/bin \
+	/depot/viewconnect/bin \
+	/depot/p4_utilities \
+	/depot/local/bin \
+	/depot/testtools/bin \
+	/u/pds/bin \
+	/remote/psd/build/scripts \
+      	/remote/psdbin/build/bin \
+	/remote/psdbin/tools/bin \
+	/remote/pv/DATA_CENTER/script \
+      	/usr/bin \
+      	/bin \
+      	/usr/5bin \
+      	/usr/ucb \
+      	/usr/lib \
+      	/usr/local/bin \
+	/usr/local/X11R6/bin \
+      	/usr/ccs/bin \
+      	/usr/sbin \
+	/depot/qsc/QSCG/bin \
+	/depot/swe/a2007.12/PREVENT32/bin \
+	/u/dcmgr/bin \
+      	$path)
+
+    
+alias vim /global/freeware/Linux/RHEL6/vim-8.2/bin/vim
+alias gvim /global/freeware/Linux/RHEL7/vim-8.2/bin/gvim
+###############################################################################
+##Perforce Setting
+###############################################################################
+#setenv P4PORT p4p-us01:1777
+setenv P4PORT p4p-us01:1666
+setenv P4EDITOR vim
+setenv P4USER tobyyan
+setenv P4CONFIG .p4config
+setenv TARGET_ARCH linux64
+#unsetenv P4CLIENT
+########################################
+##LC setting
+########################################
+#setenv synopsys_root '/remote/srm309/clientstore/a2007.12_ls_sp/snps/synopsys';
+#setenv synopsys_root '/remote/srm292/clientstore/b2008.09_ls_sp/snps/synopsys';
+#setenv synopsys_root '/remote/srm369/clientstore/c2009.06_ls/snps/synopsys';
+#setenv synopsys_root '/remote/srm437/clientstore/c2009.06_ls_sp/snps/synopsys';
+#setenv synopsys_root '/remote/srm308/clientstore/spf_main_ls/snps/synopsys';
+#setenv VOB_ROOT /remote/srm292/clientstore/b2008.09_ls_sp;
+#setenv VOB_ROOT /remote/srm369/clientstore/c2009.06_ls;
+#setenv VOB_ROOT /remote/srm437/clientstore/c2009.06_ls_sp;
+#setenv VOB_ROOT /remote/srm308/clientstore/spf_main_ls;
+#setenv REGRESSO_BASE    /remote/srm292/clientstore/b2008.09_ls_sp;
+#setenv REGRESSO_BASE    /remote/srm369/clientstore/c2009.06_ls;
+#setenv REGRESSO_BASE    /remote/srm437/clientstore/c2009.06_ls_sp;
+#setenv REGRESSO_BASE    /remote/srm308/clientstore/spf_main_ls;
+#setenv REGRESSO_ROOT    syn/unit;
+#setenv REGRESSO_LIB     /remote/dtdata1/testdata/libraries/syn;
+#setenv REGRESSO_DESIGN  /remote/dtdata1/testdata/designs/syn;
+#setenv TEST_SIM   $REGRESSO_BASE/snps/synopsys;
+#setenv TEST_ROOT $REGRESSO_BASE/snps/synopsys;
+#setenv DATA_CENTER      /remote/pv/regression/DATA_CENTER;
+#setenv LIB_CENTER       /remote/pv/regression/LIB_CENTER;
+#setenv TEST_DONT_DELETE 0
+#setenv TEST_BATCH_MODE 1
+
+
+setenv RSU_LICENSE_MAP /depot/pure/PurifyPlus_License_Map
+setenv RSU_TEMPLATE2_INI /depot/pure/templates2.ini
+
+###############################################################################
+##ls color Setting
+###############################################################################
+alias ls /usr/local/bin/ls --color=auto -F
+#setenv LS_COLORS 'ow=30;42:di=01;35:ln=36;01:pi=00;33:so=31:bd=33:cd=33:or=01;31;47:ex=01;32:tw=30;42:ow=30;43:*.v=01;31:*.verilog=01;31:*.vhd=01;33:*.c=01;33:*.cc=01;33:*.h=01;34'
+
+#setenv LS_COLORS 'no=00:fi=00:di=36:ln=04;30;47:pi=40;35:so=01;31:bd=33:cd=33:or=04;37;41:ex=07;32:*.o=01;31:*.a=01:*.gz=07;33:*.tar=07;33:*.Z=33:*.tgz=33:*.zip=33:*.rm=35:*.mpg=35:*.dat=32:*.inf=01;37:*.mov=35:*.pm=35:*.jpg=35:*.gif=35:*.bmp=35:*.ps=33:*.pdf=01;31:*.htm=32:*.html=32:*.shtml=32:*.v=45:*.c=00;32:*.cc=00;33:*.h=01;35:*.vhd=45'
+
+###############################################################################
+##license path for compiling nanochar project
+###############################################################################
+#setenv LM_LICENSE_FILE "/nfs/flexlm/backup/licenses/license.dat:\
+   #                        /nfs/flexlm/licenses/synopsys.dat:\
+   #                        /nfs/flexlm/licenses/mentor.dat:\
+   #                        /nfs/flexlm/licenses/sunws.dat:\
+   #                        27000linux231:\
+   #                        1701@cn01_lic1:\
+   #                        7182@cn01_lic1:\
+   #                        26585@raz:\
+   #                        27000@raz:\
+   #                        27000@daman:\
+   #                        27000@jeeva.synopsys.com:\
+   #                        26585@cn42_lic1"
+#setenv LM_LICENSE_FILE 1701@cn42_lic1:26585@cn42_lic1:7182@cn42_lic1
+#setenv LM_LICENSE_FILE 1701@cn42_lic1:7182@cn42_lic1
+#setenv LM_LICENSE_FILE 23013@us01_lic5:23013@us01_lic6:$LM_LICENSE_FILE
+
+setenv SNPSLMD_LICENSE_FILE '26585@us01-dglic3:26585@us01-dglic1:26585@us01-dglic2'
+
+setenv LM_LICENSE_FILE 26585@us01-dglic3:26585@us01-dglic1:26585@us01-dglic2
+setenv LM_LICENSE_FILE 7182@us01_lic1:27000@us01_lic2:27000@us01_lic3:$LM_LICENSE_FILE
+setenv LM_LICENSE_FILE 23013@us01_lic5:23013@us01_lic6:$LM_LICENSE_FILE
+
+
+###############################################################################
+##Load Sharing Facility(LSF) Setting
+###############################################################################
+set path=(/lsf/bin:$path)
+set MANPATH=(/lsf/man:$MANPATH)
+#module load lsf
+#source /lsf/conf/cshrc.lsf
+
+###############################################################################
+##Module Load
+###############################################################################
+module load grd
+#module unload syn
+#module load syn
+source /remote/sge/default/galapagos/common/settings.csh
+ 
+#module load syn ##for lc_shell
+#module load pt  ##for pt_shell
+
+#if ( "$host" == "cn42term2" ) then
+#   echo "$host"
+#   set dis_tmp=`env | grep CTX_REMOTE_DISPLAY | awk -F= '{print $2}' |tee .dis2`
+#   echo "DISPLAY=$dis_tmp"
+#endif
+#if ( "$host" == "cn42term1" ) then
+#   echo "$host"
+#   set dis_tmp=`env | grep CTX_REMOTE_DISPLAY | awk -F= '{print $2}' |tee .dis1`
+#   echo "DISPLAY=$dis_tmp"
+#endif
+
+stty erase '^H'
+stty werase '^W'
+
+###############################################################################
+##alias
+###############################################################################
+# alias gtsrc "cd ~/nanochar/project/src/nlg/"
+#unalias ls
+#alias ls "ls -F --color"
+alias la "ls -al"
+#alias cmdh "qrsh -P iheavy -l arch=glinux"
+#alias cmdh32 "cmdh -l os_bit=32"
+#alias cmdh64 "cmdh -l os_bit=64"
+#alias cmdl "qrsh -P ilight -l arch=glinux"
+#alias sv "setenv LM_LICENSE_FILE /remote/nanochar/SHARED/SpiceVision/linux/license.dat:$LM_LICENSE_FILE;/remote/nanochar/SHARED/SpiceVision/linux/spicevisionpro"
+alias setdis "setenv DISPLAY \!*"
+alias cd.. "cd .."
+alias ..... "cd ../../../.."
+alias .... "cd ../../.."
+alias ... "cd ../.."
+alias .. "cd .."
+alias cdreg "cd ~/Documents/Docs/dgpltReg"
+alias gvreg "gvim ~/Documents/Docs/dgpltReg/my_regresso_dgplt"
+alias runreg "~/Documents/Docs/dgpltReg/my_regresso_dgplt"
+alias c "clear"
+alias his "history"
+alias m "more"
+alias alib "setenv LD_LIBRARY_PATH \!* $LD_LIBRARY_PATH"
+alias pinf "cat /etc/motd"
+alias gjj "/depot/qsc/QSCG/bin/g++"
+alias regresso "/u/pds/bin/regresso"
+#alias dbatt "/remote/sweifs/PE/products/libra/main/clientstore/libra_main/object_root/bin-linux64/dbatt"
+alias dbatt "/remote/sweifs/PE/products/libra/r2020.09_sp_rel/clientstore/libra_r2020.09_sp_rel/object_root/bin-linux64/dbatt"
+alias ldbatt "/remote/sweifs/PE/products/libra/r2020.09_sp_rel/clientstore/libra_r2020.09_sp_rel/object_root/bin-linux64/ldbatt"
+alias dbarf "/remote/sweifs/PE/products/libra/r2020.09_sp_rel/clientstore/libra_r2020.09_sp_rel/object_root/bin-linux64/dbarf"
+alias go "cd /slowfs/dept5532sec/tobyyan/p4"
+alias go2 "cd /slowfs/dept5531s/tobyyan/p4"
+#alias gou "cd /slowfs/dept5531u2/library"
+#alias gore "cd /slowfs/dept5531s/jhyi/reg"
+#alias gore2 "cd /slowfs/dept5532reg/jhyi/reg"
+alias golib "cd /remote/dtdata1/testdata/libraries/syn"
+alias goclib "cd /remote/pv/DATA_CENTER/DEPOT/nwtn/ref_lib/misc_libs/src/"
+#alias gotest "cd /slowfs/dept5532dev2/jhyi/library_compile/pinnum/unit_test/T2"
+alias sc "source ~/.cshrc.tobyyan"
+#alias gdb "/usr/bin/gdb"
+alias gdb "/depot/gdb-8.3/bin/gdb"
+alias cdlm "cd nwtn/src/prog/nwlmsh"
+alias cdb "cd nwtn/src/prog/nwsh"
+alias buildm '/depot/qsc/QSCM/bin/synmake -j "rock127:8,rock128:8,rock129:8,rock130:8,rock138:8,rock156:8" \!*'
+alias buildn '/depot/qsc/QSCN/bin/synmake -j "rock127:8,rock128:8,rock129:8,rock130:8,rock138:8,rock156:8,rock210:8,rock211:8,rock212:8" \!*'
+alias buildo '/depot/tools/synmake3/3.0/synmake -j "rock127:8,rock128:8,rock129:8,rock130:8,rock138:8,rock156:8,rock210:8,rock211:8,rock212:8" \!*'
+alias p4commit '/remote/port4/PEtools/CMT2/latest/p4commit'
+alias coverity '/remote/sweifs/PE/products/dgplt/common/script/coverity/coverity_desktop.pl'
+alias synmake3 '/depot/tools/synmake3/3.0/synmake'
+alias pciv '/depot/tools/pci_builder/latest/scripts/pci_validate'
+alias pci_validate '/depot/tools/pci_builder/latest/scripts/pci_validate'
+alias test_report_old '/depot/testtools/bin-old/test_report'
+alias ks 'dbus-launch konsole &'
+#alias p4csi "p4cscope -f /remote/swefs/PE/products/dgplt/main/clientstore/dgplt_main/nwtn/src/cscope.out;"
+#alias p4csp 'p4cscope -f /remote/swefs/PE/products/dgplt/main/clientstore/dgplt_main/clt/cltsh/cscope'
+alias p4csi "p4cscope -f /remote/swefs/PE/products/dgplt/main/clientstore/dgplt_main/nwtn/src/cscope.out"
+alias p4csp "p4cscope -f /remote/swefs/PE/products/dgplt/main/clientstore/dgplt_main/clt/cltsh/cscope/cscope.out"
+alias ss 'synmake -info' 
+alias p4his '~xwwang/bin/p4hist.pl'
+alias mgrep '/u/sbhat/mgrep/mgrep'
+
+alias synmake /depot/tools/synmake3/3.3/synmake
+#alias smg "unsetenv LD_PRELOAD; setenv TARGET_ARCH linux64; synmake -j rr exec-debug FORCE_SHLIB=0"
+alias smg "unsetenv LD_PRELOAD; setenv TARGET_ARCH linux64; synmake exec-debug FORCE_SHLIB=0"
+alias smg1 "unsetenv LD_PRELOAD; setenv TARGET_ARCH linux64; synmake exec-debug FORCE_SHLIB=1"
+alias smd "setenv TARGET_ARCH linux64; synmake exec-develop FORCE_SHLIB=0"
+alias smd1 "setenv TARGET_ARCH linux64; synmake exec-develop FORCE_SHLIB=1"
+alias smd0 "setenv TARGET_ARCH linux64; synmake exec-develop"
+alias smgd "setenv TARGET_ARCH linux64; synmake exec-develop-debug FORCE_SHLIB=0 USE_GOLD_LINKER=1"
+alias smgz "setenv TARGET_ARCH linux64; synmake exec-gz"
+alias smz "setenv TARGET_ARCH linux64; synmake exec-z"
+alias regresso "/depot/testtools/bin/regresso"
+alias diff "/usr/local/bin/tkdiff"
+#alias rm "rm -rf"
+alias vt viewtool
+alias ve "vt edcs"
+alias p4o "p4 opened -u tobyyan"
+alias p4f "p4 diff"
+alias fsz "du -h --max-depth=1"
+
+
+############### for PT  #######################################################
+source /u/cltmgr/bin/p4/.p4_setup
+preenv PATH /usr/local/bin
+preenv PATH /u/cltmgr/bin
+preenv PATH /u/cltmgr/bin/p4
+
+alias p4_setclient  'source `${P4_TOOLBIN}/p4_get_client_config_file \!*` ; set __arch = `printenv TARGET_ARCH` ; set __qsc = `grep -m1 QSC_VERSION $P4_REF_ROOT/tools/rules/rules.data | awk '"'"'{printf $3}'"'"' | od -An -to1` ; if ( $__qsc < 113 && $__arch == "linux64" ) echo "Need to change the TARGET_ARCH to amd64 for QSCJ clients and earlier" ; if ( $__qsc >= 113 && $__arch == "amd64" ) echo "Need to change the TARGET_ARCH to linux64 for QSCK clients and later" ; unset __arch ; unset __qsc'
+########### end for PT  #######################################################
+
+
